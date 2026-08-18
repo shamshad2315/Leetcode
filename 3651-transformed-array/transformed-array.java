@@ -1,20 +1,22 @@
- class Solution {
+class Solution {
     public int[] constructTransformedArray(int[] nums) {
-        int n = nums.length;
 
-        int[] result = new int[n];
+          int n = nums.length;
+        int[] res = new int[n];
 
         for (int i = 0; i < n; i++) {
-            int shift = nums[i] % n;  
-            int newIdx = (i + shift) % n;
+            int shift = nums[i];
 
-            if (newIdx < 0) {
-                newIdx += n;
+            // New index
+            int newIndex = (i + shift) % n;
+
+            // Java me negative modulo aa sakta hai
+            if (newIndex < 0) {
+                newIndex += n;
             }
-
-            result[i] = nums[newIdx];
+            res[i] = nums[newIndex];
         }
-
-        return result;
+        return res;
     }
-}
+}  
+  
